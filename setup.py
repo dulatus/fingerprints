@@ -4,7 +4,7 @@ with open("README.md") as f:
     long_description = f.read()
 
 setup(
-    name="fingerprints",
+    name="company-name-cleaner",
     version="1.0.3",
     description="A library to generate entity fingerprints.",
     long_description=long_description,
@@ -20,7 +20,7 @@ setup(
     keywords="names people companies normalisation iso20275",
     author="Friedrich Lindenberg",
     author_email="friedrich@pudo.org",
-    url="http://github.com/alephdata/fingerprints",
+    url="https://github.com/dulatus/fingerprints",
     license="MIT",
     packages=find_packages(exclude=["tests"]),
     namespace_packages=[],
