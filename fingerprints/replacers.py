@@ -80,6 +80,7 @@ def get_remover(clean: Callable[[Optional[str]], Optional[str]]) -> Pattern[str]
         for items in types.items():
             for item in items:
                 item = clean(item)
+                item = item.lower()
                 if item is not None:
                     names.add(item)
     forms = "(%s)" % "|".join(names)
@@ -93,7 +94,9 @@ def remove_types(
 
     WARNING: This converts to ASCII by default, pass in a different
     `clean` function if you need a different behaviour."""
+    text = text.lower()
     text = clean(text)
+    text = replace_types(text)
     if text is None:
         return None
     return get_remover(clean).sub("", text).strip()

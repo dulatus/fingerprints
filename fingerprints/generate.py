@@ -3,7 +3,7 @@ from typing import Optional
 from normality import collapse_spaces, stringify
 
 from fingerprints.constants import BRACKETED, WS
-from fingerprints.replacers import replace_types
+from fingerprints.replacers import replace_types, remove_types
 from fingerprints.cleanup import clean_entity_name, clean_strict
 
 log = logging.getLogger(__name__)
@@ -29,6 +29,7 @@ def generate(
     # Super hard-core string scrubbing
     text = clean_strict(text)
     text = replace_types(text)
+    text = remove_types(text)
 
     if keep_order:
         text = collapse_spaces(text)
